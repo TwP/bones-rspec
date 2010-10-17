@@ -13,6 +13,7 @@ Bones {
   ignore_file  '.gitignore'
 
   depend_on    'bones'
+  depend_on    'rspec', '~> 1'
 
   use_gmail
 }
