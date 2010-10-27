@@ -19,6 +19,10 @@ module Bones::Plugins::Spec
           An array of command line options that will be passed to the spec
           command when running your tests. See the RSpec help documentation
           either online or from the command line by running 'spec --help'.
+
+          Options can also be defined in the "spec/spec.opts" file. Please
+          leave this opts array empty if you prefer to use the spec.opts file
+          instead.
         __
       }
     }
@@ -40,15 +44,7 @@ module Bones::Plugins::Spec
       desc 'Run all specs with basic output'
       Spec::Rake::SpecTask.new(:run) do |t|
         t.ruby_opts = config.ruby_opts
-        t.spec_opts = config.spec.opts
-        t.spec_files = config.spec.files
-        t.libs += config.libs
-      end
-
-      desc 'Run all specs with text output'
-      Spec::Rake::SpecTask.new(:specdoc) do |t|
-        t.ruby_opts = config.ruby_opts
-        t.spec_opts = config.spec.opts + ['--format', 'specdoc']
+        t.spec_opts = config.spec.opts unless config.spec.opts.empty?
         t.spec_files = config.spec.files
         t.libs += config.libs
       end
@@ -59,7 +55,7 @@ module Bones::Plugins::Spec
         desc 'Run all specs with Rcov'
         Spec::Rake::SpecTask.new(:rcov) do |t|
           t.ruby_opts = config.ruby_opts
-          t.spec_opts = config.spec.opts
+          t.spec_opts = config.spec.opts unless config.spec.opts.empty?
           t.spec_files = config.spec.files
           t.libs += config.libs
           t.rcov = true
