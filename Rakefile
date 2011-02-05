@@ -10,10 +10,9 @@ Bones {
   authors      'Tim Pease'
   email        'tim.pease@gmail.com'
   url          'http://github.com/TwP/bones-rspec'
-  ignore_file  '.gitignore'
 
   depend_on    'bones'
-  depend_on    'rspec', '~> 1'
+  depend_on    'rspec'
 
   use_gmail
 }

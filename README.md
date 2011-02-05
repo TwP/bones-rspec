@@ -1,20 +1,35 @@
-bones-rspec
-    by Tim Pease
-    http://rubygems.org/gems/bones-rspec
+# bones-rspec
 
-== DESCRIPTION:
+A plugin for [Mr Bones](http://rugyems.org/gems/bones) that incorporates rake
+tasks for running RSpec style tests.
+
+## DESCRIPTION
 
 The rspec package for Mr Bones provides tasks to incorporate rspec tests into
 bones based projects. It also works in tandem with the bones-rcov plugin to
 run code coverage over your specs.
 
-== INSTALL:
+This plugin is compatible with both RSpec version 1 and RSpec version 2. If
+you have both RSpec versions installed this plugin will favor the newer
+version of RSpec. To force use of the older RSpec version, use the **gem**
+command in your Rakefile to load the appropriate version.
 
-  gem install bones-rspec
+    gem 'rspec', '~> 1.3.0'
 
-== LICENSE:
+    Bones {
+      name   'my-awesome-gem'
+      ...
+    }
 
-(The MIT License)
+The gem command must appear before the Bones configuration block.
+
+## INSTALL
+
+    gem install bones-rspec
+
+#### LICENSE
+
+*The MIT License*
 
 Copyright (c) 2010
 
